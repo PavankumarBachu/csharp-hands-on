@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PIGGY BANK SAVINGS CALCULATOR</title>
+
+    <style type="text/css">
+        body {
+            background-color: #F0E68C;
+        }
+
+        h1 {
+            color: #800080;
+            font-family: cursive;
+            text-align: center;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        function calculateTotalSavings() {
+
+
+            var customerType;
+            var savingType = document.getElementById("savingType").value;
+            var amount = parseInt(document.getElementById("amount").value);
+            var tenure = document.getElementById("tenure").value;
+
+            var interest = 0;
+            var totalSavings = 0;
+
+            //taking value from radio button
+            if (document.getElementById("NC").checked) {
+                customerType = "Normal Citizen";
+            } else if (document.getElementById("SC").checked) {
+                customerType = "Senior Citizen";
+            }
+
+
+            if (savingType == "FD") {
+                if (tenure <= 2) {
+                    interest = 7;
+                } else if (tenure <= 4) {
+                    interest = 7.5;
+                } else if (tenure <= 5) {
+                    interest = 8;
+                }
+            }
+
+            if (savingType == "RD") {
+                if (tenure <= 2) {
+                    interest = 6.5;
+                } else if (tenure <= 4) {
+                    interest = 6;
+                } else if (tenure <= 5) {
+                    interest = 5.5;
+                }
+            }
+
+            if (customerType == "Senior Citizen") {
+                interest = interest + 0.5;
+            }
+            alert(customerType + " " + savingType + " " + amount + " " + tenure + " " + interest);
+
+            totalSavings = (amount + (amount * tenure * interest) / 100);
+            alert(totalSavings);
+            document.getElementById("result").innerHTML = "Total Saving done " + totalSavings;
+
+            return false;
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <form name="myform" onsubmit="return calculateTotalSavings()">
+        <h1>PIGGY BANK SAVINGS CALCULATOR</h1>
+        <table>
+
+            <tr>
+                <td>Customer Name</td>
+                <td><input type="text" name="customerName" id="customerName" required></td>
+            </tr>
+
+            <tr>
+                <td>Customer Type</td>
+                <td><input type="radio" name="customerType" id="NC" value="Normal Citizen" required>Normal Citizen</td>
+                <td><input type="radio" name="customerType" id="SC" value="Senior Citizen" required>Senior Citizen</td>
+            </tr>
+
+            <tr>
+                <td>Address & ID Proof</td>
+                <td><input type="checkbox" id="addressProof1" name="addressProof" value="Adhar Card">Adhar Card</td>
+                <td><input type="checkbox" id="addressProof2" name="addressProof" value="Pan Card">Pan Card</td>
+                <td><input type="checkbox" id="addressProof3" name="addressProof" value="Driving License">Driving License</td>
+                <td><input type="checkbox" id="addressProof4" name="addressProof" value="Passport">Passport</td>
+                <td><input type="checkbox" id="addressProof5" name="addressProof" value="Voter Id">Voter Id</td>
+            </tr>
+
+            <tr>
+                <td>Mobile Number</td>
+                <td><input type="number" name="customerMobileNumber" id="customerMobileNumber" pattern="[789]{1}[0-9]{9}" required></td>
+            </tr>
+
+            <tr>
+                <td>Type of Savings</td>
+                <td><input list="savings" name="savingType" id="savingType" autocomplete="on" required>
+                    <datalist id="savings">
+                        <option value="FD">
+                        <option value="RD">
+                    </datalist>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Amount</td>
+                <td><input type="number" name="amount" id="amount" min="500" required></td>
+            </tr>
+                    
+            <!--- range and we have to display range value using a label with a id and using method                 oninput="document.getElementById('tenurerange').innerHTML = this.value" ---> 
+            
+            <tr>
+                <td>Tenure</td>
+                <td>
+                    <input type="range" name="tenure" id="tenure" min="1" max="5" value="1" required oninput="document.getElementById('tenurerange').innerHTML = this.value" />
+                    <label id="tenurerange"></label>
+                </td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" id="submit" name="submit" value="Calculate Savings"></td>
+                <td><input type="reset" id="reset" name="reset" value="Reset"></td>
+            </tr>
+        </table>
+    </form>
+    <div id="result"></div>
+</body>
+
+</html>

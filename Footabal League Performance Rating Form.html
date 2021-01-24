@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<!--Code is implemented without using table tag-->
+
+<head>
+    <title>Football League Performance</title>
+    <style type="text/css">
+        body {
+            background-color: #FFFFFF;
+        }
+
+        h1 {
+            color: #FF0000;
+            font-style: italic;
+            font-family: Bookman Old Style;
+        }
+
+        #result {
+            font-style: bold;
+            color: #0000FF;
+        }
+
+        #playerName {
+            margin-left: 65px;
+        }
+
+        #teamName {
+            margin-left: 70px;
+        }
+
+        #clubAddress,
+        #coachName {
+            margin-left: 60px;
+        }
+
+        #email {
+            margin-left: 85px;
+        }
+
+        #mobileNumber {
+            margin-left: 40px;
+        }
+
+        #leagueName,
+        #coachRating {
+            margin-left: 55px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <center>
+            <h1>Football League Performance Rating Form</h1>
+        </center>
+    </header>
+
+    <form onsubmit="return calculatePerformanceRating()">
+        <label for="playerNameTxt">Player Name</label>
+        <input type="text" id="playerName" name="playerName" required />
+        <br />
+        <label for="teamNameTxt">Team Name</label>
+        <input type="text" id="teamName" name="teamName" required />
+        <br />
+        <label for="address">Club Address</label>
+        <textarea id="clubAddress" name="clubAddress" rows="5" columns="25"></textarea>
+        <br />
+        <label for="genderRadio">Gender</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Male: <input type="radio" id="male" name="Gender" value="Male" required>&nbsp;&nbsp;&nbsp;
+        Female: <input type="radio" id="female" name="Gender" value="Female">
+        <br />
+        <label for="emailTxt">Email ID</label>
+        <input type="text" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
+        <br />
+        <label for="mobiletxt">Mobile Number</label>
+        <input type="text" id="mobileNumber" name="mobiletxt" required pattern="[987]{1}[0-9]{9}" />
+        <br />
+        <label for="coachNameTxt">Coach Name</label>
+        <input type="text" id="coachName" name="coachName" required />
+        <br />
+        <label for="leagueNameTxt">League Name</label>
+        <input type="text" id="leagueName" name="leagueName" required />
+        <br />
+        <label for="leagueCompletionDate">League Completion Date</label>
+        <input type="text" id="leagueCompletionDate" name="leagueCompletionDate" pattern="(0?[1-9]|1[012])/(0?[1-9]|[12][0-9]|3[01])/\d{4}" required />
+        <br />
+        <label for="coach Rating">Coach Rating</label>
+        <select id="coachRating" name="coachRating">
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Average">Average</option>
+            <option value="Need improvement">Need improvement</option>
+            <option value="Poor">Poor</option>
+        </select>
+        <br /><br />
+        <br /><br />
+        <input type="submit" value="Rate Performance" />
+
+        <input type="reset" value="Clear">
+
+    </form>
+    <div name="result" id="result"></div>
+
+
+    <script type="text/javascript">
+        function calculatePerformanceRating() {
+
+            var name = document.getElementById("playerName").value;
+            var actualName;
+            var rating;
+            if (document.getElementById('male').checked) {
+                actualName = "Mr." + name;
+            } else {
+                actualName = "Mrs." + name;
+            }
+            var coachrate = document.getElementById("coachRating").value;
+            switch (coachrate) {
+                case "Excellent":
+                    rating = 5;
+                    break;
+                case "Good":
+                    rating = 4;
+                    break;
+                case "Average":
+                    rating = 3;
+                    break;
+                case "Need improvement":
+                    rating = 2;
+                    break;
+                case "Poor":
+                    rating = 1;
+                    break;
+            }
+            document.getElementById("result").innerHTML = "Performance Rating of " + actualName + " is " + rating + "-" + coachrate;
+            return false;
+        }
+
+    </script>
+
+
+</body>
+
+</html>

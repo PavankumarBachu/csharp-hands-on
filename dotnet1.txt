@@ -1,0 +1,139 @@
+What is .NET?
+
+
+a) .NET is a framework
+Framework is a software infrastructure, used to develop applications, debug or test or build the project
+
+
+b) .NET is used to develop any kind of Applications, Services and Class libraries
+Applications like
+	Console Application
+	Windows Forms Application
+	Web Application
+	Mobile Application
+
+Services
+	Windows Services
+	SOAP services
+	RESTful Services
+
+c) .NET support all patterns
+Example:	nTier architecture, MVC Pattern, MVVM patterns, RESTful, etc.,
+
+.NET Framework is only for windows ( Not avaliable in other platforms)
+.NET Core is platform independent (Available for windows, Linux and Mac)
+
+.NET support multiple programming languages for development
+Like:	C#, VB, VC++, etc.,
+
+.NET support advanced programming features, for faster application development
+
+
+C# (C-Sharp)
+It is a programming language from Microsoft
+C# is an OOPs programming language
+C# is commonly used in .NET Technoloiges and also in other frameworks
+
+Visual Studio
+It is an IDE from Microsoft, specially designed to develop or test or run or debug .NET Applications
+Visual studio available for other technoloiges like .NET, Node, python, etc.,
+
+
+Console Application:
+	It is an application, used to create command line program which can interact with requirement directly.
+Without UI or mouse we can interact with system.
+
+What is a project?
+	A project is a complete application
+	Project contains file extension .csproj, .vbproj
+
+What is Solution?
+	Solution is a collection of projects
+	Solution contians an extension .sln
+
+.NET Framework recognize the project and files and solutions based on thier extensions
+
+
+
+Console Application structure:
+
+using System;				//import library
+
+namespace ConApp01			//Project boundary
+{
+	class Program			//Class definition
+	{
+		public static void Main()	//Main method, project entry
+		{
+		}
+	}
+}
+
+Keywords:
+using	:	Used to import library
+namespace:	Used to create a boundary
+class	:	Refers to class definition
+
+using System;
+	System is a root namespace for .NET Technoloiges API
+
+
+Visual Studio features:
+code snippets
+	The syntax can be generated without writing
+	write first 2 or 3 letters and click on tab+tab
+Example:
+	svm	tab+tab
+	cw 	tab+tab
+	if 	tab+tab
+	swich 	tab+tab
+	prop	tab+tab
+	ctro	tab+tab
+
+Reference highlighting
+	This feature is used to provide reference for the keyword by mousehover
+=========================================
+
+//Comments are non-executable statements
+//single line comments
+/*
+	multi line comments
+*/
+
+
+CTS:	Common Type System
+It is a hierarchy of all data types used in .NET Technoligies
+Value types
+	int
+	char
+	double
+	bool, etc.,
+Reference types
+	String,
+	Delegate,
+	Pointer, etc.,
+
+
+integer data type available in different sizes
+Example:
+	Data type			alias
+	-----------			-----
+	System.Int16			short
+	System.Int32			int		
+	System.Int64			long
+
+Note:	All types under System namespace
+
+
+Convert class method
+Convert.ToInt16()	:	to convert type to Int16
+Convert.ToInt32()	:	to convert type to Int32
+
+Convert.ToChar()	:	to convert char type, etc., 
+
+
+Int.Parse() is method in Int32 type
+
+Convert is a dedicated class contains all methods together
+Example:	
+Convert.ToInt32() is an alias definition of Int.Parse()
